@@ -2,7 +2,7 @@
 name = "{{ project_name }}"
 version = "0.1.0"
 description = ""
-requires-python = ">=3.8"
+requires-python = ">=3.13"
 dependencies = [
     "django>=2.2",
     "djangoql",
@@ -19,8 +19,8 @@ dependencies = [
     "whitenoise",
 ]
 
-[tool.uv]
-dev-dependencies = [
+[dependency-groups]
+dev = [
     "ipython",
     "bpython",
     "pudb",
@@ -33,4 +33,4 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [tool.ruff]
-ignore = ["F403", "E501", "N802", "N803", "N806", "C901", "D100", "D102", "D102", "D10"]
+lint.ignore = ["F403", "E501", "N802", "N803", "N806", "C901", "D100", "D102", "D102", "D10"]

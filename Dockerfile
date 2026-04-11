@@ -1,5 +1,5 @@
-FROM python:3.13
-ENV PYTHONUNBUFFERED 1
+FROM python:3.14
+ENV PYTHONUNBUFFERED=1
 RUN apt-get update
 RUN apt-get install -y swig libssl-dev dpkg-dev
 
@@ -14,9 +14,6 @@ WORKDIR /code
 # Install dependencies at system level.
 RUN uv export --format requirements.txt -o requirements.txt
 RUN uv pip install --system -r requirements.txt
-
-ADD misc/dokku/CHECKS /app/
-ADD misc/dokku/* /code/
 
 COPY . /code/
 RUN /code/manage.py collectstatic --noinput
